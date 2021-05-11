@@ -57,4 +57,13 @@ call rice#begin()
 "Plug 'Kenta11/helloworld-vim'
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:rice_color = 'dracula'
+let g:rice_plug_group = ['basic', 'navigation', 'syntax', 'coc', 'git']
+let g:rice_python_interpreter = 'python3'
+let g:coc_global_extensions = [
+\   'coc-clangd',
+\   'coc-powershell',
+\   'coc-tsserver',
+\   'coc-pyright'
+\   ]
 call rice#end() " Rice config should start before this line

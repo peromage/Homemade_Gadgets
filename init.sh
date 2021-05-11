@@ -30,4 +30,23 @@ init_file=$(realpath "$BASH_SOURCE")
 #rice_mods="basic nav env"
 #
 ################################################################################
+rice_theme="my-bash"
+rice_mods="basic nav env"
 . $init_home/ribash/ribash.sh # Rice config should start before this line
+
+# Not available in container
+if [ -z "$(cat /proc/1/cgroup | grep :/docker)" ]; then
+    eval "$(lua5.3 $init_home/bin/z.lua --init bash enhanced once)"
+fi
+
+PATH=$HOME/a/bin:$PATH
+. $HOME/a/workbench/init.sh
+. $HOME/a/workbench/sources/ecgdev_docker.sh
+. $HOME/a/workbench/sources/ecg2sdk_setup.sh
+
+cpm_setup() {
+    local p="$HOME/repo/ecg_master"
+    cd "$p"
+    . env_setup.sh
+    cd fnv/cpm
+}
