@@ -32,4 +32,7 @@ Import-Module ripwsh -ArgumentList @{
 #mods = @('basic', 'nav', 'windows', 'env')
 #
 ################################################################################
+theme = "my-lite"
+mods = @('basic', 'nav', 'env')
 } # Rice config should start before this line
+iex ((lua5.3 $(ri_normalize_path $init_home/bin/z.lua) --init powershell enhanced once) -join "`n")
